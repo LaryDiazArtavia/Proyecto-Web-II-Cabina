@@ -1,0 +1,30 @@
+{
+  "name": "proyecto-web-ii-cabina",
+  "version": "1.0.0",
+  "description": "Proyecto de Programación Web II donde vamos a crear un sistema para administrar salas de ensayo, bandas, músicos, reservas y préstamos de equipos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaryDiazArtavia/Proyecto-Web-II-Cabina.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LaryDiazArtavia/Proyecto-Web-II-Cabina/issues"
+  },
+  "homepage": "https://github.com/LaryDiazArtavia/Proyecto-Web-II-Cabina#readme",
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "mongoose": "^9.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
