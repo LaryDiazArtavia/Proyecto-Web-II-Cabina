@@ -4,6 +4,8 @@ const roomsRoutes = require('./routes/rooms');
 const equipmentRoutes = require('./routes/equipment');
 const bandsRoutes = require('./routes/bands');
 const musiciansRoutes = require('./routes/musicians');
+const loansRoutes = require('./routes/loans');
+const bookingsRoutes = require('./routes/bookings');
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use('/api/rooms', roomsRoutes);
 app.use('/api/equipment', equipmentRoutes);
 app.use('/api/bands', bandsRoutes);
 app.use('/api/musicians', musiciansRoutes);
+app.use('/api/loans', loansRoutes);
+app.use('/api/bookings', bookingsRoutes);
 
 // Manejo de errores
 app.use((error, req, res, next) => {
