@@ -1,0 +1,48 @@
+{
+  "name": "Cabina Local",
+  "_postman_variable_scope": "environment",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "roomId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "bandId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "musicianId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "equipmentId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "bookingId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "loanId",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    }
+  ]
+}
