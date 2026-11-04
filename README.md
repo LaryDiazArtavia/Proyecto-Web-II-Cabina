@@ -36,7 +36,11 @@ API REST (solo backend) del centro cultural: salas de ensayo, bandas, músicos, 
 
 ## Postman
 
-En la carpeta `postman/` están la colección **Cabina** y su environment. Importar ambos y correr las carpetas en este orden: salas, bandas, músicos, equipo, reservas, consultas y errores.
+En la carpeta `postman/` están la colección **Cabina** y su Environment. Se deben importar ambos archivos en Postman.
+
+El orden recomendado para ejecutar las solicitudes es: Salas, Bandas, Músicos, Equipo, Reservas, Consultas y Errores.
+
+Las carpetas Préstamos y Cancelación permiten comprobar los préstamos de equipos y su devolución al cancelar una reserva. Algunas solicitudes dependen de datos creados previamente.
 
 ## Índices de MongoDB
 
@@ -88,7 +92,7 @@ En `src/controllers/bookings.js`:
 Cada consulta adentro de la transacción lleva la sesión (`.session(session)` o `{ session }`). Si algo falla, se lanza un error con `throwError` y Mongo deshace todo, así no queda una reserva sin equipo ni equipo descontado sin reserva.
 
 ### Cómo probamos el 409
-En Postman, carpeta **Errores** de la colección `Cabina - Reservas`:
-- **Equipo de más**: pide 999 unidades de un equipo que tiene 4. Responde 409. Después revisamos `GET /api/bookings` y `GET /api/equipment`: no se creó la reserva y `availableUnits` no cambió. Eso demuestra que la transacción se deshizo.
+En Postman, carpeta **Errores** de la colección `Cabina`:
+- **Equipo de más**: solicita 999 unidades de un equipo, superando la cantidad disponible. Responde 409. Después se revisan `GET /api/bookings` y `GET /api/equipment` para comprobar que no se creó la reserva y que `availableUnits` no cambió. Esto demuestra que la transacción se deshizo.
 - **Traslape**: pide la misma sala y fecha con un horario que se cruza con otra reserva activa. Responde 409.
 - **Cancelar reserva ya cancelada** (carpeta Cancelación): responde 409 porque una reserva cancelada se queda así.
