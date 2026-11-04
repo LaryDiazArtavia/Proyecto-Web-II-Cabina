@@ -7863,7 +7863,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"Devuelve _id, name, active=true y genre\", function () { pm.expect(j).to.have.property(\"_id\"); pm.expect(j.active).to.eql(true); pm.expect(j.genre).to.eql(\"rock\"); });",
                   "pm.environment.set(\"bandId\", j._id);",
                   "pm.collectionVariables.set(\"bandName\", j.name);"
@@ -7941,7 +7941,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"name\": \"Los Ensayos 1762182000\",\n  \"genre\": \"rock\",\n  \"active\": true,\n  \"contactName\": \"Lary Díaz\",\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"name\": \"Los Ensayos 1762182000\",\n    \"genre\": \"rock\",\n    \"active\": true,\n    \"contactName\": \"Lary Díaz\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -7954,7 +7954,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"Devuelve _id\", function () { pm.expect(j).to.have.property(\"_id\"); });"
                 ]
               }
@@ -8030,7 +8030,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9d2\",\n  \"name\": \"Jazz Nocturno 1762182001\",\n  \"genre\": \"jazz\",\n  \"active\": true,\n  \"contactName\": \"Mario Vega\",\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d2\",\n    \"name\": \"Jazz Nocturno 1762182001\",\n    \"genre\": \"jazz\",\n    \"active\": true,\n    \"contactName\": \"Mario Vega\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8104,7 +8104,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", function () { pm.response.to.have.status(200); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"Devuelve la banda pedida\", function () { pm.expect(j._id).to.eql(pm.environment.get(\"bandId\")); });",
                   "pm.test(\"Incluye el arreglo musicians\", function () { pm.expect(j.musicians).to.be.an(\"array\"); });"
                 ]
@@ -8155,7 +8155,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"name\": \"Los Ensayos 1762182000\",\n  \"genre\": \"rock\",\n  \"active\": true,\n  \"contactName\": \"Lary Díaz\",\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0,\n  \"musicians\": [\n    {\n      \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n      \"name\": \"Carlos Mora\",\n      \"instrument\": \"guitarra\",\n      \"email\": \"carlos1762182000@cabina.com\",\n      \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n      \"active\": true,\n      \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n      \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n      \"__v\": 0\n    }\n  ]\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"name\": \"Los Ensayos 1762182000\",\n    \"genre\": \"rock\",\n    \"active\": true,\n    \"contactName\": \"Lary Díaz\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0,\n    \"musicians\": [\n      {\n        \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n        \"name\": \"Carlos Mora\",\n        \"instrument\": \"guitarra\",\n        \"email\": \"carlos1762182000@cabina.com\",\n        \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n        \"active\": true,\n        \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n        \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n        \"__v\": 0\n      }\n    ]\n  }\n}"
             }
           ]
         },
@@ -8168,7 +8168,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", function () { pm.response.to.have.status(200); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"El género cambió a jazz\", function () { pm.expect(j.genre).to.eql(\"jazz\"); });"
                 ]
               }
@@ -8246,7 +8246,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"name\": \"Los Ensayos 1762182000\",\n  \"genre\": \"jazz\",\n  \"active\": true,\n  \"contactName\": \"Lary Díaz Artavia\",\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"name\": \"Los Ensayos 1762182000\",\n    \"genre\": \"jazz\",\n    \"active\": true,\n    \"contactName\": \"Lary Díaz Artavia\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8259,7 +8259,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "pm.collectionVariables.set(\"tempBandId\", pm.response.json()._id);"
+                  "pm.collectionVariables.set(\"tempBandId\", pm.response.json().data._id);"
                 ]
               }
             }
@@ -8334,7 +8334,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9d9\",\n  \"name\": \"Banda Temporal 1762182002\",\n  \"genre\": \"otro\",\n  \"active\": true,\n  \"contactName\": \"Temporal\",\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d9\",\n    \"name\": \"Banda Temporal 1762182002\",\n    \"genre\": \"otro\",\n    \"active\": true,\n    \"contactName\": \"Temporal\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8396,7 +8396,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"message\": \"Banda eliminada\"\n}"
+              "body": "{\n  \"data\": {\n    \"data\": {\n      \"_id\": \"6720a1b2c3d4e5f6a7b8c9d9\",\n      \"name\": \"Banda Temporal 1762182002\",\n      \"genre\": \"otro\",\n      \"active\": true,\n      \"contactName\": \"Temporal\",\n      \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n      \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n      \"__v\": 0\n    }\n  }\n}"
             }
           ]
         }
@@ -8415,7 +8415,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"Devuelve _id, active=true y la banda\", function () { pm.expect(j).to.have.property(\"_id\"); pm.expect(j.active).to.eql(true); pm.expect(j.band).to.eql(pm.environment.get(\"bandId\")); });",
                   "pm.environment.set(\"musicianId\", j._id);",
                   "pm.collectionVariables.set(\"musicianEmail\", j.email);"
@@ -8493,7 +8493,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n  \"name\": \"Carlos Mora\",\n  \"instrument\": \"guitarra\",\n  \"email\": \"carlos1762182000@cabina.com\",\n  \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"active\": true,\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n    \"name\": \"Carlos Mora\",\n    \"instrument\": \"guitarra\",\n    \"email\": \"carlos1762182000@cabina.com\",\n    \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"active\": true,\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8506,7 +8506,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "pm.test(\"Devuelve _id\", function () { pm.expect(pm.response.json()).to.have.property(\"_id\"); });"
+                  "pm.test(\"Devuelve _id\", function () { pm.expect(pm.response.json().data).to.have.property(\"_id\"); });"
                 ]
               }
             }
@@ -8581,7 +8581,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9e2\",\n  \"name\": \"Ana Rojas\",\n  \"instrument\": \"batería\",\n  \"email\": \"ana1762182001@cabina.com\",\n  \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"active\": true,\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9e2\",\n    \"name\": \"Ana Rojas\",\n    \"instrument\": \"batería\",\n    \"email\": \"ana1762182001@cabina.com\",\n    \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"active\": true,\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8655,7 +8655,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", function () { pm.response.to.have.status(200); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"La banda viene poblada con name\", function () { pm.expect(j.band).to.be.an(\"object\"); pm.expect(j.band).to.have.property(\"name\"); });"
                 ]
               }
@@ -8705,7 +8705,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n  \"name\": \"Carlos Mora\",\n  \"instrument\": \"guitarra\",\n  \"email\": \"carlos1762182000@cabina.com\",\n  \"band\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"name\": \"Los Ensayos 1762182000\",\n    \"genre\": \"jazz\",\n    \"active\": true,\n    \"contactName\": \"Lary Díaz\",\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  },\n  \"active\": true,\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n    \"name\": \"Carlos Mora\",\n    \"instrument\": \"guitarra\",\n    \"email\": \"carlos1762182000@cabina.com\",\n    \"band\": {\n      \"_id\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n      \"name\": \"Los Ensayos 1762182000\",\n      \"genre\": \"jazz\",\n      \"active\": true,\n      \"contactName\": \"Lary Díaz\",\n      \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n      \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n      \"__v\": 0\n    },\n    \"active\": true,\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8718,7 +8718,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", function () { pm.response.to.have.status(200); });",
-                  "const j = pm.response.json();",
+                  "const j = pm.response.json().data;",
                   "pm.test(\"El instrumento cambió\", function () { pm.expect(j.instrument).to.eql(\"bajo\"); });"
                 ]
               }
@@ -8796,7 +8796,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n  \"name\": \"Carlos Mora Solano\",\n  \"instrument\": \"bajo\",\n  \"email\": \"carlos1762182000@cabina.com\",\n  \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"active\": true,\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9e1\",\n    \"name\": \"Carlos Mora Solano\",\n    \"instrument\": \"bajo\",\n    \"email\": \"carlos1762182000@cabina.com\",\n    \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"active\": true,\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8809,7 +8809,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", function () { pm.response.to.have.status(201); });",
-                  "pm.collectionVariables.set(\"tempMusicianId\", pm.response.json()._id);"
+                  "pm.collectionVariables.set(\"tempMusicianId\", pm.response.json().data._id);"
                 ]
               }
             }
@@ -8884,7 +8884,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"_id\": \"6720a1b2c3d4e5f6a7b8c9e9\",\n  \"name\": \"Temporal\",\n  \"instrument\": \"voz\",\n  \"email\": \"temp1762182002@cabina.com\",\n  \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n  \"active\": true,\n  \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n  \"__v\": 0\n}"
+              "body": "{\n  \"data\": {\n    \"_id\": \"6720a1b2c3d4e5f6a7b8c9e9\",\n    \"name\": \"Temporal\",\n    \"instrument\": \"voz\",\n    \"email\": \"temp1762182002@cabina.com\",\n    \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n    \"active\": true,\n    \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n    \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
             }
           ]
         },
@@ -8946,7 +8946,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"message\": \"Músico eliminado\"\n}"
+              "body": "{\n  \"data\": {\n    \"data\": {\n      \"_id\": \"6720a1b2c3d4e5f6a7b8c9e9\",\n      \"name\": \"Temporal\",\n      \"instrument\": \"voz\",\n      \"email\": \"temp1762182002@cabina.com\",\n      \"band\": \"6720a1b2c3d4e5f6a7b8c9d1\",\n      \"active\": true,\n      \"createdAt\": \"2026-11-02T15:00:00.000Z\",\n      \"updatedAt\": \"2026-11-02T15:00:00.000Z\",\n      \"__v\": 0\n    }\n  }\n}"
             }
           ]
         }
