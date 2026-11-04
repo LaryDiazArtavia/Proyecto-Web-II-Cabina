@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "69096c0a-c87e-4050-9d74-3c62b32c340d",
+    "_postman_id": "915e0fd7-5f1b-4be9-aee3-132e588c3608",
     "name": "Cabina",
-    "description": "API Cabina - Salas, Equipo, Bandas, Músicos, Reservas y Préstamos. Incluye CRUD, filtros, paginación, validaciones, errores y ejemplos de respuestas. Ejemplos ilustrativos: verificar contra respuestas reales cuando corresponda.",
+    "description": "API Cabina para administrar salas de ensayo, bandas, músicos, equipos, reservas y préstamos mediante Express, MongoDB y Mongoose.\n\nOrden recomendado para ejecutar las solicitudes:\n\n1. Salas\n2. Bandas\n3. Músicos\n4. Equipo\n5. Reservas\n6. Consultas\n7. Errores\n    \n\nLas carpetas Préstamos y Cancelación permiten consultar los préstamos y comprobar la devolución de equipos al cancelar una reserva.\n\nAlgunas pruebas necesitan datos creados previamente y deben ejecutarse individualmente en el orden correspondiente.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "57109506"
   },

@@ -8,6 +8,12 @@ async function createRoom(req, res) {
         const room = await Room.create(req.body);
         res.status(201).json({ data: room });
     } catch (error) {
+        if (error.code === 11000) {
+            return res.status(409).json({
+                error: 'Ya existe una sala con ese nombre'
+            });
+        }
+
         res.status(400).json({ error: error.message });
     }
 }
@@ -119,15 +125,22 @@ async function updateRoom(req, res) {
         );
 
         if (!room) {
-            return res.status(404).json({ error: 'Sala no encontrada' });
+            return res.status(404).json({
+                error: 'Sala no encontrada'
+            });
         }
 
         res.json({ data: room });
     } catch (error) {
+        if (error.code === 11000) {
+            return res.status(409).json({
+                error: 'Ya existe una sala con ese nombre'
+            });
+        }
+
         res.status(400).json({ error: error.message });
     }
 }
-
 
 async function deleteRoom(req, res) {
     try {

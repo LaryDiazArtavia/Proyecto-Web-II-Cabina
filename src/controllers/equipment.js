@@ -14,6 +14,12 @@ async function createEquipment(req, res) {
         const equipment = await Equipment.create(req.body);
         res.status(201).json({ data: equipment });
     } catch (error) {
+        if (error.code === 11000) {
+            return res.status(409).json({
+                error: 'Ya existe un equipo con ese nombre'
+            });
+        }
+
         res.status(400).json({ error: error.message });
     }
 }
@@ -142,6 +148,11 @@ async function updateEquipment(req, res) {
         await equipment.save();
         res.json({ data: equipment });
     } catch (error) {
+        if (error.code === 11000) {
+            return res.status(409).json({
+                error: 'Ya existe un equipo con ese nombre'
+            });
+        }
         res.status(400).json({ error: error.message });
     }
 }

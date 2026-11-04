@@ -346,16 +346,41 @@ async function updateBooking(req, res) {
 
         // Datos nuevos: lo que viene en el body o lo que ya tenía la reserva
         const data = {
-            room: req.body.room || booking.room,
-            band: req.body.band || booking.band,
-            date: req.body.date || booking.date,
-            startHour: req.body.startHour || booking.startHour,
-            endHour: req.body.endHour || booking.endHour
+            room: booking.room,
+            band: booking.band,
+            date: booking.date,
+            startHour: booking.startHour,
+            endHour: booking.endHour
         };
 
+        if (req.body.room !== undefined) {
+            data.room = req.body.room;
+        }
+
+        if (req.body.band !== undefined) {
+            data.band = req.body.band;
+        }
+
+        if (req.body.date !== undefined) {
+            data.date = req.body.date;
+        }
+
+        if (req.body.startHour !== undefined) {
+            data.startHour = req.body.startHour;
+        }
+
+        if (req.body.endHour !== undefined) {
+            data.endHour = req.body.endHour;
+        }
+
         // Si cambia horario, sala o banda, se vuelven a revisar las reglas
-        if (req.body.room || req.body.band || req.body.date || req.body.startHour || req.body.endHour) {
-            const validation = await validateBooking(data, booking._id, null);
+        if (req.body.room !== undefined ||
+            req.body.band !== undefined ||
+            req.body.date !== undefined ||
+            req.body.startHour !== undefined ||
+            req.body.endHour !== undefined) {
+
+        const validation = await validateBooking(data, booking._id, null);
             if (validation) {
                 return res.status(validation.status).json({ error: validation.error });
             }
